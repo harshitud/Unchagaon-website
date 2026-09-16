@@ -4,155 +4,920 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>ऊँचागाँव | स्वच्छता एवं विकास</title>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--green:#087443;--dark:#063b27;--cream:#f7f8f3;--yellow:#f7bd3f;--line:#e4e9e5;--text:#18342a}
-html{scroll-behavior:smooth}
-body{font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;color:var(--text);background:#fff;line-height:1.55}
-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
-.nav{height:64px;max-width:1100px;margin:auto;padding:0 18px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:21px;font-weight:900;color:var(--green);text-decoration:none}
-.logo span{font-size:24px}
-.navlinks{display:flex;gap:22px}.navlinks a{color:var(--text);text-decoration:none;font-size:14px;font-weight:700}
-.menu{display:none;border:0;background:transparent;font-size:25px}
-.hero{background:var(--cream)}
-.hero-inner{max-width:1100px;margin:auto;padding:58px 18px 64px;display:grid;grid-template-columns:1.15fr .85fr;gap:45px;align-items:center}
-.tag{display:inline-block;color:var(--green);font-weight:800;font-size:14px;margin-bottom:12px}
-h1{font-size:clamp(42px,7vw,70px);line-height:1.04;color:var(--dark);letter-spacing:-1.5px}
-.hero p{font-size:18px;max-width:610px;margin-top:18px;color:#466057}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 19px;border-radius:9px;text-decoration:none;font-weight:800;border:1px solid var(--green)}
-.btn.primary{background:var(--green);color:#fff}.btn.secondary{color:var(--green);background:#fff}
-.hero-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;box-shadow:0 12px 30px #153c2712}
-.hero-card .symbol{font-size:58px;margin-bottom:12px}
-.hero-card h2{color:var(--dark);font-size:25px}.hero-card p{font-size:15px;margin-top:8px}
-section{max-width:1100px;margin:auto;padding:64px 18px}
-.section-head{margin-bottom:28px}.section-head .eyebrow{color:var(--green);font-weight:800;font-size:13px}.section-head h2{font-size:32px;color:var(--dark);margin-top:4px}.section-head p{color:#5d6e67;margin-top:5px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{border:1px solid var(--line);border-radius:14px;padding:24px;background:#fff}
-.card .icon{font-size:30px}.card h3{margin:12px 0 5px;color:var(--dark);font-size:20px}.card p{color:#607069;font-size:15px}
-.plan-wrap{background:#f4f8f4;border-top:1px solid #edf1ed;border-bottom:1px solid #edf1ed}
-.months{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.month{background:#fff;border:1px solid var(--line);padding:18px;border-radius:12px}
-.month strong{font-size:13px;color:var(--green)}.month h3{font-size:17px;margin:4px 0}.month small{color:#697971}
-.join{background:var(--dark);color:#fff}
-.join-inner{max-width:1100px;margin:auto;padding:55px 18px;display:flex;align-items:center;justify-content:space-between;gap:30px}
-.join h2{font-size:31px}.join p{color:#cfe0d7;margin-top:7px;max-width:650px}.join .btn{background:var(--yellow);border-color:var(--yellow);color:#1e2a24;white-space:nowrap}
-footer{background:#04291b;color:#c7d8d0;text-align:center;padding:22px 18px;font-size:13px}
-@media(max-width:750px){
-.nav{height:58px}.navlinks{display:none}.menu{display:block}
-.hero-inner{display:block;padding:45px 18px 50px}.hero-card{margin-top:30px}
-.hero p{font-size:16px}.grid,.months{grid-template-columns:1fr}
-section{padding:48px 18px}.section-head h2{font-size:28px}
-.join-inner{display:block}.join .btn{margin-top:22px;width:100%}
+
+:root{
+  --green:#087443;
+  --dark:#063b27;
+  --cream:#f7f8f3;
+  --yellow:#f7bd3f;
+  --line:#e4e9e5;
+  --text:#18342a
 }
 
-.bulletin{background:#fff;border-bottom:1px solid var(--line)}
-.bulletin-inner{max-width:1100px;margin:auto;padding:18px;display:flex;align-items:center;gap:14px}
-.bulletin-title{background:var(--green);color:#fff;font-weight:850;font-size:13px;padding:8px 12px;border-radius:7px;white-space:nowrap}
-.bulletin-track{overflow:hidden;flex:1;white-space:nowrap}
-.bulletin-track span{display:inline-block;font-size:14px;font-weight:650;color:#40564d}
-.bulletin-dot{color:var(--green);margin:0 8px}
-@media(max-width:600px){
-.bulletin-inner{padding:13px 14px;gap:10px}
-.bulletin-title{font-size:11px;padding:7px 9px}
-.bulletin-track span{font-size:13px}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;
+  color:var(--text);
+  background:#fff;
+  line-height:1.55
 }
+
+header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:#fff;
+  border-bottom:1px solid var(--line)
+}
+
+.nav{
+  height:64px;
+  max-width:1100px;
+  margin:auto;
+  padding:0 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between
+}
+
+.logo{
+  font-size:21px;
+  font-weight:900;
+  color:var(--green);
+  text-decoration:none
+}
+
+.logo span{font-size:24px}
+
+.navlinks{
+  display:flex;
+  gap:22px
+}
+
+.navlinks a{
+  color:var(--text);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:700
+}
+
+.menu{
+  display:none;
+  border:0;
+  background:transparent;
+  font-size:25px;
+  cursor:pointer
+}
+
+.hero{
+  background:var(--cream)
+}
+
+.hero-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:58px 18px 64px;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:45px;
+  align-items:center
+}
+
+.tag{
+  display:inline-block;
+  color:var(--green);
+  font-weight:800;
+  font-size:14px;
+  margin-bottom:12px
+}
+
+h1{
+  font-size:clamp(42px,7vw,70px);
+  line-height:1.04;
+  color:var(--dark);
+  letter-spacing:-1.5px
+}
+
+.hero p{
+  font-size:18px;
+  max-width:610px;
+  margin-top:18px;
+  color:#466057
+}
+
+.hero-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:26px
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:48px;
+  padding:0 19px;
+  border-radius:9px;
+  text-decoration:none;
+  font-weight:800;
+  border:1px solid var(--green)
+}
+
+.btn.primary{
+  background:var(--green);
+  color:#fff
+}
+
+.btn.secondary{
+  color:var(--green);
+  background:#fff
+}
+
+.hero-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:30px;
+  box-shadow:0 12px 30px #153c2712
+}
+
+.hero-card .symbol{
+  font-size:58px;
+  margin-bottom:12px
+}
+
+.hero-card h2{
+  color:var(--dark);
+  font-size:25px
+}
+
+.hero-card p{
+  font-size:15px;
+  margin-top:8px
+}
+
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:64px 18px
+}
+
+.section-head{
+  margin-bottom:28px
+}
+
+.section-head .eyebrow{
+  color:var(--green);
+  font-weight:800;
+  font-size:13px
+}
+
+.section-head h2{
+  font-size:32px;
+  color:var(--dark);
+  margin-top:4px
+}
+
+.section-head p{
+  color:#5d6e67;
+  margin-top:5px
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px
+}
+
+.card{
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+  background:#fff
+}
+
+.card .icon{font-size:30px}
+
+.card h3{
+  margin:12px 0 5px;
+  color:var(--dark);
+  font-size:20px
+}
+
+.card p{
+  color:#607069;
+  font-size:15px
+}
+
+.plan-wrap{
+  background:#f4f8f4;
+  border-top:1px solid #edf1ed;
+  border-bottom:1px solid #edf1ed
+}
+
+.months{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px
+}
+
+.month{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:18px;
+  border-radius:12px
+}
+
+.month strong{
+  font-size:13px;
+  color:var(--green)
+}
+
+.month h3{
+  font-size:17px;
+  margin:4px 0
+}
+
+.month small{
+  color:#697971
+}
+
+.join{
+  background:var(--dark);
+  color:#fff
+}
+
+.join-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:55px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px
+}
+
+.join h2{font-size:31px}
+
+.join p{
+  color:#cfe0d7;
+  margin-top:7px;
+  max-width:650px
+}
+
+.join .btn{
+  background:var(--yellow);
+  border-color:var(--yellow);
+  color:#1e2a24;
+  white-space:nowrap
+}
+
+footer{
+  background:#04291b;
+  color:#c7d8d0;
+  text-align:center;
+  padding:22px 18px;
+  font-size:13px
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+  display:none;
+  position:absolute;
+  top:64px;
+  right:18px;
+  left:18px;
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:0 10px 25px #153c2718;
+  z-index:30
+}
+
+.mobile-menu.open{
+  display:block
+}
+
+.mobile-menu a{
+  display:block;
+  padding:15px 18px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:700;
+  border-bottom:1px solid var(--line)
+}
+
+.mobile-menu a:last-child{
+  border-bottom:0
+}
+
+@media(max-width:750px){
+
+  .nav{
+    height:58px
+  }
+
+  .navlinks{
+    display:none
+  }
+
+  .menu{
+    display:block
+  }
+
+  .hero-inner{
+    display:block;
+    padding:45px 18px 50px
+  }
+
+  .hero-card{
+    margin-top:30px
+  }
+
+  .hero p{
+    font-size:16px
+  }
+
+  .grid,
+  .months{
+    grid-template-columns:1fr
+  }
+
+  section{
+    padding:48px 18px
+  }
+
+  .section-head h2{
+    font-size:28px
+  }
+
+  .join-inner{
+    display:block
+  }
+
+  .join .btn{
+    margin-top:22px;
+    width:100%
+  }
+}
+
+.bulletin{
+  background:#fff;
+  border-bottom:1px solid var(--line)
+}
+
+.bulletin-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:18px;
+  display:flex;
+  align-items:center;
+  gap:14px
+}
+
+.bulletin-title{
+  background:var(--green);
+  color:#fff;
+  font-weight:850;
+  font-size:13px;
+  padding:8px 12px;
+  border-radius:7px;
+  white-space:nowrap
+}
+
+.bulletin-track{
+  overflow:hidden;
+  flex:1;
+  white-space:nowrap
+}
+
+.bulletin-track span{
+  display:inline-block;
+  font-size:14px;
+  font-weight:650;
+  color:#40564d
+}
+
+.bulletin-dot{
+  color:var(--green);
+  margin:0 8px
+}
+
+@media(max-width:600px){
+
+  .bulletin-inner{
+    padding:13px 14px;
+    gap:10px
+  }
+
+  .bulletin-title{
+    font-size:11px;
+    padding:7px 9px
+  }
+
+  .bulletin-track span{
+    font-size:13px
+  }
+}
+
 </style>
 </head>
+
 <body>
+
 <header>
+
   <div class="nav">
-    <a class="logo" href="#">ऊँचागाँव <span>🌱</span></a>
+
+    <a class="logo" href="#">
+      ऊँचागाँव <span>🌱</span>
+    </a>
+
     <nav class="navlinks">
-      <a href="#soch">हमारी सोच</a><a href="volunteers.html">Volunteers</a><a href="founding-member.html">Founding Member</a><a href="#plan">सफाई प्लान</a><a href="login.html">Login</a>
+      <a href="#soch">हमारी सोच</a>
+      <a href="volunteers.html">Volunteers</a>
+      <a href="founding-member.html">Founding Member</a>
+      <a href="#plan">सफाई प्लान</a>
+      <a href="login.html">Login</a>
     </nav>
-    <div class="mobile-menu" id="mobileMenu">
-  <a href="founding-member.html">Founding members</a>
-  <a href="volunteers.html">Meet our volunteers</a>
-  <a href="#about">About the organisation</a>
-  <a href="#help">Help</a>
-</div>
+
+    <button
+      class="menu"
+      id="menuBtn"
+      aria-label="Menu"
+      aria-expanded="false">
+      ☰
+    </button>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+    aria-hidden="true">
+
+    <a href="founding-member.html">
+      Founding members
+    </a>
+
+    <a href="volunteers.html">
+      Meet our volunteers
+    </a>
+
+    <a href="#about">
+      About the organisation
+    </a>
+
+    <a href="#help">
+      Help
+    </a>
+
+  </div>
+
 </header>
 
+
 <main>
+
 <section class="hero">
+
   <div class="hero-inner">
+
     <div>
-      <div class="tag">स्वच्छता एवं विकास समिति</div>
-      <h1>स्वच्छ गाँव,<br>सुंदर गाँव।</h1>
-      <p>ऊँचागाँव को साफ, सुंदर और बेहतर बनाने की कोशिश — गाँव के लोगों के साथ, गाँव के लिए।</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#plan">सफाई प्लान देखें</a>
-        <a class="btn secondary" href="volunteer.html">Volunteer बनें →</a>
+
+      <div class="tag">
+        स्वच्छता एवं विकास समिति
       </div>
+
+      <h1>
+        स्वच्छ गाँव,<br>
+        सुंदर गाँव।
+      </h1>
+
+      <p>
+        ऊँचागाँव को साफ, सुंदर और बेहतर बनाने की कोशिश —
+        गाँव के लोगों के साथ, गाँव के लिए।
+      </p>
+
+      <div class="hero-actions">
+
+        <a class="btn primary" href="#plan">
+          सफाई प्लान देखें
+        </a>
+
+        <a class="btn secondary" href="volunteer.html">
+          Volunteer बनें →
+        </a>
+
+      </div>
+
     </div>
+
+
     <div class="hero-card">
-      <div class="symbol">🧹🌿</div>
-      <h2>हमारा गाँव, हमारी जिम्मेदारी</h2>
-      <p>छोटे-छोटे काम मिलकर गाँव में बड़ा बदलाव ला सकते हैं।</p>
+
+      <div class="symbol">
+        🧹🌿
+      </div>
+
+      <h2>
+        हमारा गाँव, हमारी जिम्मेदारी
+      </h2>
+
+      <p>
+        छोटे-छोटे काम मिलकर गाँव में बड़ा बदलाव ला सकते हैं।
+      </p>
+
     </div>
+
   </div>
+
 </section>
+
 
 <div class="bulletin" aria-label="Latest updates">
+
   <div class="bulletin-inner">
-    <div class="bulletin-title">📢 BULLETIN</div>
-    <div class="bulletin-track">
-      <span>ऊँचागाँव स्वच्छता अभियान से जुड़ें</span>
-      <span class="bulletin-dot">•</span>
-      <span>मासिक सफाई activities में volunteer करें</span>
-      <span class="bulletin-dot">•</span>
-      <span>आपका सुझाव हमारे लिए important है</span>
+
+    <div class="bulletin-title">
+      📢 BULLETIN
     </div>
+
+    <div class="bulletin-track">
+
+      <span>
+        ऊँचागाँव स्वच्छता अभियान से जुड़ें
+      </span>
+
+      <span class="bulletin-dot">•</span>
+
+      <span>
+        मासिक सफाई activities में volunteer करें
+      </span>
+
+      <span class="bulletin-dot">•</span>
+
+      <span>
+        आपका सुझाव हमारे लिए important है
+      </span>
+
+    </div>
+
   </div>
+
 </div>
+
 
 <section id="soch">
-  <div class="section-head"><div class="eyebrow">हम क्या करना चाहते हैं?</div><h2>सफाई एक दिन का काम नहीं</h2><p>हमारा लक्ष्य साफ-सफाई को रोजमर्रा की आदत बनाना है।</p></div>
-  <div class="grid">
-    <article class="card"><div class="icon">🧹</div><h3>नियमित सफाई</h3><p>हर महीने तय जगहों पर मिलकर सफाई अभियान।</p></article>
-    <article class="card"><div class="icon">♻️</div><h3>कचरा जागरूकता</h3><p>कचरा सही जगह डालने और साफ रखने की आदत को बढ़ावा देना।</p></article>
-    <article class="card"><div class="icon">🤝</div><h3>सबकी भागीदारी</h3><p>युवा, बुजुर्ग और परिवार — हर किसी की अपनी भूमिका।</p></article>
+
+  <div class="section-head">
+
+    <div class="eyebrow">
+      हम क्या करना चाहते हैं?
+    </div>
+
+    <h2>
+      सफाई एक दिन का काम नहीं
+    </h2>
+
+    <p>
+      हमारा लक्ष्य साफ-सफाई को रोजमर्रा की आदत बनाना है।
+    </p>
+
   </div>
+
+
+  <div class="grid">
+
+    <article class="card">
+
+      <div class="icon">🧹</div>
+
+      <h3>
+        नियमित सफाई
+      </h3>
+
+      <p>
+        हर महीने तय जगहों पर मिलकर सफाई अभियान।
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">♻️</div>
+
+      <h3>
+        कचरा जागरूकता
+      </h3>
+
+      <p>
+        कचरा सही जगह डालने और साफ रखने की आदत को बढ़ावा देना।
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <div class="icon">🤝</div>
+
+      <h3>
+        सबकी भागीदारी
+      </h3>
+
+      <p>
+        युवा, बुजुर्ग और परिवार — हर किसी की अपनी भूमिका।
+      </p>
+
+    </article>
+
+  </div>
+
 </section>
+
 
 <div class="plan-wrap">
+
 <section id="plan">
-  <div class="section-head"><div class="eyebrow">मासिक प्लान</div><h2>हर महीने एक काम</h2><p>ये शुरुआती प्लान है; तारीख और जगह गाँव की सहमति से बदली जा सकती है।</p></div>
-  <div class="months monthly-grid">
-    <div class="month"><strong>जनवरी</strong><h3>मुख्य रास्ते</h3><small>सफाई + कचरा संग्रह</small></div>
-    <div class="month"><strong>फरवरी</strong><h3>स्कूल के आसपास</h3><small>सफाई + जागरूकता</small></div>
-    <div class="month"><strong>मार्च</strong><h3>नालियाँ</h3><small>जल निकासी क्षेत्र</small></div>
-    <div class="month"><strong>अप्रैल</strong><h3>सार्वजनिक स्थल</h3><small>चौपाल / सामुदायिक स्थान</small></div>
-    <div class="month"><strong>मई</strong><h3>गली अभियान</h3><small>stree cleaning& Awareness program</small></div>
-    <div class="month"><strong>जून</strong><h3>हरित अभियान</h3><small>पेड़-पौधों के आसपास सफाई</small></div>
-    <div class="month"><strong>जुलाई</strong><h3>जलभराव क्षेत्र</h3><small>बरसात से पहले तैयारी</small></div>
-    <div class="month"><strong>अगस्त</strong><h3>मुख्य बाजार / चौराहा</h3><small>सफाई + जनजागरूकता</small></div>
-    <div class="month"><strong>सितंबर</strong><h3>नाली एवं रास्ते</h3><small>विशेष सफाई अभियान</small></div>
-    <div class="month"><strong>अक्टूबर</strong><h3>त्योहार स्वच्छता</h3><small>सार्वजनिक जगहों की सफाई</small></div>
-    <div class="month"><strong>नवंबर</strong><h3>कचरा प्रबंधन</h3><small>सूखा / गीला कचरा जागरूकता</small></div>
-    <div class="month"><strong>दिसंबर</strong><h3>वार्षिक स्वच्छता दिवस</h3><small>साल की समीक्षा + अगला प्लान</small></div>
+
+  <div class="section-head">
+
+    <div class="eyebrow">
+      मासिक प्लान
+    </div>
+
+    <h2>
+      हर महीने एक काम
+    </h2>
+
+    <p>
+      ये शुरुआती प्लान है; तारीख और जगह गाँव की सहमति से बदली जा सकती है।
+    </p>
+
   </div>
+
+
+  <div class="months monthly-grid">
+
+    <div class="month">
+      <strong>जनवरी</strong>
+      <h3>मुख्य रास्ते</h3>
+      <small>सफाई + कचरा संग्रह</small>
+    </div>
+
+    <div class="month">
+      <strong>फरवरी</strong>
+      <h3>स्कूल के आसपास</h3>
+      <small>सफाई + जागरूकता</small>
+    </div>
+
+    <div class="month">
+      <strong>मार्च</strong>
+      <h3>नालियाँ</h3>
+      <small>जल निकासी क्षेत्र</small>
+    </div>
+
+    <div class="month">
+      <strong>अप्रैल</strong>
+      <h3>सार्वजनिक स्थल</h3>
+      <small>चौपाल / सामुदायिक स्थान</small>
+    </div>
+
+    <div class="month">
+      <strong>मई</strong>
+      <h3>गली अभियान</h3>
+      <small>stree cleaning & Awareness program</small>
+    </div>
+
+    <div class="month">
+      <strong>जून</strong>
+      <h3>हरित अभियान</h3>
+      <small>पेड़-पौधों के आसपास सफाई</small>
+    </div>
+
+    <div class="month">
+      <strong>जुलाई</strong>
+      <h3>जलभराव क्षेत्र</h3>
+      <small>बरसात से पहले तैयारी</small>
+    </div>
+
+    <div class="month">
+      <strong>अगस्त</strong>
+      <h3>मुख्य बाजार / चौराहा</h3>
+      <small>सफाई + जनजागरूकता</small>
+    </div>
+
+    <div class="month">
+      <strong>सितंबर</strong>
+      <h3>नाली एवं रास्ते</h3>
+      <small>विशेष सफाई अभियान</small>
+    </div>
+
+    <div class="month">
+      <strong>अक्टूबर</strong>
+      <h3>त्योहार स्वच्छता</h3>
+      <small>सार्वजनिक जगहों की सफाई</small>
+    </div>
+
+    <div class="month">
+      <strong>नवंबर</strong>
+      <h3>कचरा प्रबंधन</h3>
+      <small>सूखा / गीला कचरा जागरूकता</small>
+    </div>
+
+    <div class="month">
+      <strong>दिसंबर</strong>
+      <h3>वार्षिक स्वच्छता दिवस</h3>
+      <small>साल की समीक्षा + अगला प्लान</small>
+    </div>
+
+  </div>
+
 </section>
+
 </div>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="section-head">
+
+    <div class="eyebrow">
+      ABOUT THE ORGANISATION
+    </div>
+
+    <h2>
+      हमारे बारे में
+    </h2>
+
+    <p>
+      ऊँचागाँव को स्वच्छ, सुंदर और बेहतर बनाने के लिए
+      गाँव के लोगों की सामूहिक पहल।
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- HELP -->
+
+<section id="help">
+
+  <div class="section-head">
+
+    <div class="eyebrow">
+      HELP
+    </div>
+
+    <h2>
+      मदद और जानकारी
+    </h2>
+
+    <p>
+      Volunteer registration या website से जुड़ी सहायता के लिए
+      हमसे संपर्क करें।
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- JOIN -->
 
 <section id="join">
-  <div class="section-head"><div class="eyebrow">आप भी जुड़ सकते हैं</div><h2>ऊँचागाँव के लिए साथ आइए 🤝</h2><p>सफाई अभियान में समय देना हो, सुझाव देना हो या किसी काम में मदद करनी हो — अपना नाम दर्ज करें।</p></div>
-  <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:20px">
-    <div><h3 style="margin:0;color:var(--dark)">Volunteer registration</h3><p style="margin-top:5px">Form भरने में बस एक मिनट लगेगा।</p></div>
-    <a class="btn primary" href="volunteer.html">Volunteer बनें →</a>
+
+  <div class="section-head">
+
+    <div class="eyebrow">
+      आप भी जुड़ सकते हैं
+    </div>
+
+    <h2>
+      ऊँचागाँव के लिए साथ आइए 🤝
+    </h2>
+
+    <p>
+      सफाई अभियान में समय देना हो, सुझाव देना हो या किसी काम में
+      मदद करनी हो — अपना नाम दर्ज करें।
+    </p>
+
   </div>
+
+
+  <div
+    class="card"
+    style="display:flex;align-items:center;justify-content:space-between;gap:20px">
+
+    <div>
+
+      <h3 style="margin:0;color:var(--dark)">
+        Volunteer registration
+      </h3>
+
+      <p style="margin-top:5px">
+        Form भरने में बस एक मिनट लगेगा।
+      </p>
+
+    </div>
+
+    <a class="btn primary" href="volunteer.html">
+      Volunteer बनें →
+    </a>
+
+  </div>
+
 </section>
 
+
 <div class="join">
+
   <div class="join-inner">
-    <div><h2>गाँव को बेहतर बनाने में आपका साथ चाहिए।</h2><p>एक व्यक्ति से शुरुआत होती है, लेकिन बदलाव सबके साथ आता है।</p></div>
-    <a class="btn" href="volunteer.html">Join the campaign</a>
+
+    <div>
+
+      <h2>
+        गाँव को बेहतर बनाने में आपका साथ चाहिए।
+      </h2>
+
+      <p>
+        एक व्यक्ति से शुरुआत होती है, लेकिन बदलाव सबके साथ आता है।
+      </p>
+
+    </div>
+
+    <a class="btn" href="volunteer.html">
+      Join the campaign
+    </a>
+
   </div>
+
 </div>
+
 </main>
 
-<footer>© 2026 ऊँचागाँव स्वच्छता एवं विकास समिति • स्वच्छता हमारी सामूहिक जिम्मेदारी है।</footer>
+
+<footer>
+  © 2026 ऊँचागाँव स्वच्छता एवं विकास समिति •
+  स्वच्छता हमारी सामूहिक जिम्मेदारी है।
+</footer>
+
+
+<script>
+
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+
+  const open = mobileMenu.classList.toggle("open");
+
+  menuBtn.setAttribute(
+    "aria-expanded",
+    open ? "true" : "false"
+  );
+
+  mobileMenu.setAttribute(
+    "aria-hidden",
+    open ? "false" : "true"
+  );
+
+});
+
+
+mobileMenu.querySelectorAll("a").forEach(a => {
+
+  a.addEventListener("click", () => {
+
+    mobileMenu.classList.remove("open");
+
+    menuBtn.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    mobileMenu.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+  });
+
+});
+
+</script>
+
 </body>
 </html>
