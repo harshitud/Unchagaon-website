@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>My Dashboard | ऊँचागाँव</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;color:#18342a;background:#f7f8f3}
+header{background:#fff;border-bottom:1px solid #e4e9e5}.nav{height:64px;max-width:1100px;margin:auto;padding:0 18px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:21px;font-weight:900;color:#087443;text-decoration:none}.nav a{text-decoration:none;color:#18342a;font-weight:700}
+main{min-height:calc(100vh - 64px);display:grid;place-items:center;padding:30px 18px}.dash{width:min(100%,900px);background:#fff;border:1px solid #e4e9e5;padding:28px;border-radius:16px}
+.profile-head{display:flex;justify-content:space-between;gap:18px}.eyebrow{color:#087443;font-weight:850;font-size:13px}h1{font-size:32px;color:#063b27;margin:4px 0}.sub{color:#607069;margin:7px 0 24px}.avatar{width:62px;height:62px;border:1px solid #e4e9e5;border-radius:50%;display:grid;place-items:center;font-size:28px;background:#f7f8f3}
+.status{margin-top:20px;padding:14px 16px;background:#f7f8f3;border-left:4px solid #087443}.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.item{padding:16px;border:1px solid #e4e9e5;border-radius:10px}.item small{display:block;color:#708078;font-size:12px}.item strong{display:block;margin-top:3px;color:#063b27;word-break:break-word}
+.section-title{display:flex;justify-content:space-between;align-items:end;margin-top:30px;margin-bottom:12px;color:#063b27}.section-title span{font-size:22px;font-weight:850}.section-title small{color:#708078}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{border:1px solid #e4e9e5;padding:18px;border-radius:10px}.stat span{font-size:22px}.stat strong{display:block;font-size:28px;color:#063b27;margin-top:6px}.stat small{color:#708078}
+.points-box{margin-top:18px;padding:18px;border:1px solid #e4e9e5;background:#f7f8f3;display:flex;justify-content:space-between;align-items:center;gap:18px}.points-box h2{font-size:20px;color:#063b27}.points-box p{color:#607069;font-size:13px;margin-top:3px}.points{font-size:32px;font-weight:900;color:#087443}
+.months{margin-top:14px;border:1px solid #e4e9e5;border-radius:10px;overflow:hidden}.month-head,.month-row{display:grid;grid-template-columns:1fr 100px;padding:11px 14px}.month-head{background:#f1f5f1}.month-row{border-top:1px solid #e4e9e5}.month-row b{text-align:right;color:#087443}
+button{border:1px solid #087443;background:#fff;color:#087443;padding:12px 18px;border-radius:9px;font-weight:850;margin-top:24px}
+@media(max-width:600px){.dash{padding:22px}.profile-grid,.stats{grid-template-columns:1fr}.points-box{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="nav"><a class="logo" href="index.html">ऊँचागाँव 🌱</a><a href="index.html">← Home</a></div></header>
+<main><section class="dash">
+<div class="profile-head"><div><div class="eyebrow">MY DASHBOARD</div><h1 id="welcome">Welcome, Volunteer 👋</h1><p class="sub">यह आपका personal volunteer profile और activity dashboard है.</p></div><div class="avatar">👤</div></div>
+<div id="statusMessage" class="status">आपकी जानकारी load हो रही है…</div>
+<div class="profile-grid">
+<div class="item"><small>Name</small><strong id="name">—</strong></div>
+<div class="item"><small>Registered Email</small><strong id="userEmail">—</strong></div>
+<div class="item"><small>Volunteer ID</small><strong id="volId">—</strong></div>
+<div class="item"><small>Volunteer Status</small><strong id="volStatus">—</strong></div>
+</div>
+<div class="section-title"><span>Activity</span><small>आपकी participation</small></div>
+<div class="stats">
+<div class="stat"><span>📅</span><strong id="workingDays">0</strong><small>Working Days</small></div>
+<div class="stat"><span>🤝</span><strong id="involvement">0</strong><small>Involvement in Affairs</small></div>
+<div class="stat"><span>⭐</span><strong id="loyalty">0</strong><small>Loyalty Score</small></div>
+</div>
+<div class="points-box"><div><h2>Monthly Points</h2><p>हर महीने की activities के आधार पर दिए गए points यहाँ दिखेंगे.</p></div><div class="points" id="points">0</div></div>
+<div class="months"><div class="month-head"><strong>Month</strong><strong>Points</strong></div>
+<div class="month-row"><span>January</span><b id="jan">0</b></div><div class="month-row"><span>February</span><b id="feb">0</b></div><div class="month-row"><span>March</span><b id="mar">0</b></div><div class="month-row"><span>April</span><b id="apr">0</b></div><div class="month-row"><span>May</span><b id="may">0</b></div><div class="month-row"><span>June</span><b id="jun">0</b></div><div class="month-row"><span>July</span><b id="jul">0</b></div><div class="month-row"><span>August</span><b id="aug">0</b></div><div class="month-row"><span>September</span><b id="sep">0</b></div><div class="month-row"><span>October</span><b id="oct">0</b></div><div class="month-row"><span>November</span><b id="nov">0</b></div><div class="month-row"><span>December</span><b id="dec">0</b></div></div>
+<button id="logout">Logout</button>
+</section></main>
+<script>
+const SUPABASE_URL="https://njbcyvpqkrpxgoaufqyk.supabase.co";
+const SUPABASE_KEY="sb_publishable_UGcHXVd3p47INGgLYUIs7Q_HL2Qz23y";
+const token=localStorage.getItem("ug_access_token");
+const $=id=>document.getElementById(id);
+const show=(id,v)=>$(id).textContent=(v===null||v===undefined||v==="")?"—":v;
+
+$("logout").onclick=()=>{localStorage.removeItem("ug_access_token");localStorage.removeItem("ug_refresh_token");location.href="login.html"};
+
+async function loadDashboard(){
+ if(!token){location.href="login.html";return}
+ try{
+  const ar=await fetch(SUPABASE_URL+"/auth/v1/user",{headers:{apikey:SUPABASE_KEY,Authorization:"Bearer "+token}});
+  if(!ar.ok)throw new Error("Session expired");
+  const user=await ar.json();
+  show("userEmail",user.email);
+  $("welcome").textContent="Welcome, "+(user.user_metadata?.full_name||"Volunteer")+" 👋";
+  const headers={apikey:SUPABASE_KEY,Authorization:"Bearer "+token};
+
+  // Read NAME + STATUS directly from volunteers table.
+  const vr=await fetch(SUPABASE_URL+"/rest/v1/volunteers?select=id,name,auth_user_id,status&auth_user_id=eq."+encodeURIComponent(user.id)+"&limit=1",{headers});
+  if(!vr.ok){console.error(await vr.text());throw new Error("Volunteer profile access नहीं मिला")}
+  const rows=await vr.json();
+  if(rows[0]){
+    const v=rows[0];
+    show("name",v.name);
+    show("volId","UG-"+String(v.id).padStart(4,"0"));
+    show("volStatus",v.status);
+    $("statusMessage").textContent="Profile loaded successfully. आपका current volunteer status: "+(v.status||"—");
+  }else{
+    show("name",user.user_metadata?.full_name);
+    show("volStatus","Profile linking pending");
+  }
+
+  // Read activity + points from volunteer_stats.
+  const sr=await fetch(SUPABASE_URL+"/rest/v1/volunteer_stats?select=working_days,involvement_affairs,loyalty_score,monthly_points&auth_user_id=eq."+encodeURIComponent(user.id)+"&limit=1",{headers});
+  if(!sr.ok){console.error(await sr.text())}
+  else{
+    const srows=await sr.json();
+    if(srows[0]){
+      const s=srows[0],m=s.monthly_points||{};
+      $("workingDays").textContent=s.working_days??0;
+      $("involvement").textContent=s.involvement_affairs??0;
+      $("loyalty").textContent=s.loyalty_score??0;
+      const ids={january:"jan",february:"feb",march:"mar",april:"apr",may:"may",june:"jun",july:"jul",august:"aug",september:"sep",october:"oct",november:"nov",december:"dec"};
+      let total=0;
+      Object.keys(ids).forEach(k=>{const n=Number(m[k]??0)||0;$(ids[k]).textContent=n;total+=n});
+      $("points").textContent=total;
+    }
+  }
+ }catch(e){
+  console.error(e);
+  $("statusMessage").textContent=e.message==="Session expired"?"Session expired. कृपया दोबारा login करें.":"Dashboard data load नहीं हो पाया. Supabase RLS/connection check करें.";
+ }
+}
+loadDashboard();
+</script>
+</body>
+</html>

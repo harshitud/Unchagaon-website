@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer Registration | ऊँचागाँव</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#f5f7f4;color:#18251b}
+header{background:#fff;border-bottom:1px solid #e5e9e5;padding:15px 18px}
+.nav{max-width:760px;margin:auto;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:21px;font-weight:800;color:#173d25;text-decoration:none}.back{color:#245c36;text-decoration:none}
+main{max-width:760px;margin:auto;padding:28px 16px 50px}.hero{margin-bottom:22px}
+.badge{display:inline-block;background:#e5f1e8;color:#245c36;padding:7px 11px;border-radius:7px;font-size:13px;font-weight:700}
+h1{font-size:30px;margin:14px 0 8px}.sub{color:#5d695f;line-height:1.6}
+.form-box{background:#fff;border:1px solid #e1e6e1;border-radius:12px;padding:20px;box-shadow:0 5px 18px rgba(20,45,25,.05)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:flex;flex-direction:column;gap:7px}.full{grid-column:1/-1}
+label{font-weight:700;font-size:14px}
+input,select,textarea{width:100%;border:1px solid #cfd7cf;border-radius:7px;padding:12px 13px;font-size:15px;background:#fff;outline:none}
+textarea{min-height:105px;resize:vertical}.note{font-size:12px;color:#6a746c;line-height:1.5}
+.join-box{background:#f1f7f2;border-left:4px solid #2d7b4d;padding:12px 13px;border-radius:5px;color:#31553c;line-height:1.55;font-size:13px}
+button{width:100%;border:0;border-radius:8px;background:#245c36;color:#fff;padding:13px;font-size:16px;font-weight:800}
+.status{margin-top:14px;padding:11px 12px;border-radius:7px;display:none;font-size:14px;line-height:1.5}.status.show{display:block}
+.status.ok{background:#e8f5eb;color:#1f5a2d}.status.err{background:#fdeceb;color:#9b2923}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.full{grid-column:auto}h1{font-size:26px}.form-box{padding:16px}}
+</style>
+
+<style id="interest-box-style">
+  #interest {
+    width: 100%;
+    border: 1px solid #d9e2dc;
+    border-radius: 12px;
+    padding: 14px 16px;
+    background: #fff;
+    color: #173b2c;
+    font-size: 16px;
+    min-height: 52px;
+    outline: none;
+  }
+  #interest:focus {
+    border-color: #176b45;
+    box-shadow: 0 0 0 2px rgba(23,107,69,.10);
+  }
+</style>
+
+</head>
+<body>
+<header><div class="nav">
+<a class="logo" href="index.html">ऊँचागाँव</a><a class="back" href="index.html">← वापस</a>
+</div></header>
+<main>
+<section class="hero">
+<span class="badge">VOLUNTEER REGISTRATION</span>
+<h1>स्वयंसेवक के रूप में जुड़ें</h1>
+<p class="sub">अपनी जानकारी भरें और बताएं कि आप ऊँचागाँव के काम में किस तरह योगदान देना चाहते हैं।</p>
+</section>
+<section class="form-box">
+<form id="volunteerForm"><div class="grid">
+<div class="field"><label>पूरा नाम *</label><input id="name" required placeholder="अपना नाम"></div>
+<div class="field"><label>मोबाइल नंबर *</label><input id="phone" type="tel" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10 अंकों का मोबाइल नंबर"></div>
+<div class="field"><label>Gmail / Email *</label><input id="email" type="email" required placeholder="example@gmail.com"></div>
+<div class="field"><label>Login Password *</label><input id="password" type="password" required minlength="6" placeholder="कम से कम 6 characters"><div class="note">इसी password से बाद में Login करेंगे।</div></div>
+<div class="field"><label>क्षेत्र / मोहल्ला</label><input id="area" placeholder="जैसे — मुख्य बस्ती"></div>
+<div class="field">
+<label>आप किस तरह जुड़ना चाहते हैं? *</label>
+<select id="interest" name="interest" required>
+  <option value="" disabled selected>अपना क्षेत्र चुनें</option>
+  <option value="सफाई अभियान">सफाई अभियान</option>
+  <option value="कचरा जागरूकता">कचरा जागरूकता</option>
+  <option value="वृक्ष रोपण एवं पर्यावरण">वृक्ष रोपण एवं पर्यावरण</option>
+  <option value="जल संरक्षण">जल संरक्षण</option>
+  <option value="शिक्षा एवं साक्षरता">शिक्षा एवं साक्षरता</option>
+  <option value="स्वास्थ्य एवं जागरूकता">स्वास्थ्य एवं जागरूकता</option>
+  <option value="खेल एवं युवा गतिविधियाँ">खेल एवं युवा गतिविधियाँ</option>
+  <option value="ग्राम विकास एवं जनसहभागिता">ग्राम विकास एवं जनसहभागिता</option>
+  <option value="जन-जागरूकता एवं अभियान">जन-जागरूकता एवं अभियान</option>
+  <option value="सभी क्षेत्रों में जुड़ना">सभी क्षेत्रों में जुड़ना</option>
+</select>
+<div class="note">एक से ज्यादा कामों में योगदान देना चाहते हैं तो “सभी” चुनें।</div>
+</div>
+<div class="field full"><div class="join-box"><strong>आपका योगदान मायने रखता है।</strong><br>सफाई, कचरा जागरूकता, अन्न (Food), वृक्ष रोपण और अन्य कार्य — आप अपनी रुचि के अनुसार जुड़ सकते हैं।</div></div>
+<div class="field full"><label>संदेश / सुझाव</label><textarea id="message" placeholder="कोई सुझाव या संदेश..."></textarea></div>
+<div class="field full"><button id="submitBtn">Account बनाकर Volunteer Registration करें 🤝</button><div id="formStatus" class="status"></div></div>
+</div></form>
+</section></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const supabaseClient=window.supabase.createClient(
+"https://njbcyvpqkrpxgoaufqyk.supabase.co",
+"sb_publishable_UGcHXVd3p47INGgLYUIs7Q_HL2Qz23y");
+const form=document.getElementById("volunteerForm"), box=document.getElementById("formStatus"), btn=document.getElementById("submitBtn");
+function status(t,c){box.textContent=t;box.className="status show "+c}
+form.addEventListener("submit",async e=>{
+e.preventDefault();
+const name=document.getElementById("name").value.trim(),phone=document.getElementById("phone").value.trim(),
+email=document.getElementById("email").value.trim().toLowerCase(),password=document.getElementById("password").value,
+area=document.getElementById("area").value.trim()||null,interest=document.getElementById("interest").value,
+message=document.getElementById("message").value.trim()||null;
+if(!/^[0-9]{10}$/.test(phone)){status("❌ कृपया 10 अंकों का सही मोबाइल नंबर डालें।","err");return}
+btn.disabled=true;btn.textContent="⏳ Registration हो रहा है...";
+try{
+const {data:a,error:ae}=await supabaseClient.auth.signUp({email,password,options:{data:{full_name:name}}});
+if(ae)throw ae;if(!a.user)throw new Error("Account create नहीं हो सका।");
+if(a.session){
+const {error:pe}=await supabaseClient.from("volunteers").insert([{name,phone,area,interest,message,auth_user_id:a.user.id,status:"pending"}]);
+if(pe)throw new Error("Account बन गया, लेकिन volunteer profile save नहीं हो सकी: "+pe.message);
+await supabaseClient.from("volunteer_stats").insert([{auth_user_id:a.user.id}]);
+status("✅ Registration सफल! Verification के बाद profile activate की जाएगी।","ok");
+form.reset();setTimeout(()=>location.href="login.html",1800);
+}else{status("✅ Account बन गया है। Email verification के बाद Login करें।","ok");form.reset()}
+}catch(err){status("❌ "+(err?.message||String(err)),"err")}
+finally{btn.disabled=false;btn.textContent="Account बनाकर Volunteer Registration करें 🤝"}
+});
+</script>
+</body></html>
